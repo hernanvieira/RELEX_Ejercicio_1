@@ -5,8 +5,12 @@
     <title>PrimeNumbers</title>
   </head>
   <body>
-    <input id="input" placeholder="Ingrese un valor" value="" />
+    <p>
+      Introduzca un número para conocer los numeros primos anteriores al mismo
+    </p>
+    <input type="number" id="input" placeholder="Ingrese un valor" value="" />
     <button onClick="generar_primos()">Generar</button>
+    <div id="resultado"></div>
   </body>
 
   <script>
@@ -33,9 +37,13 @@
           array_primos.push(i);
         }
       }
-      console.log(
-        "Los numeros primos anterior a " + num + " son: " + array_primos
-      );
+      if (array_primos.length != 0) {
+        document.getElementById("resultado").innerHTML =
+          "Los numeros primos anterior a " + num + " son: " + array_primos;
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "No se hallaron numeros primos anteriores a " + num;
+      }
     }
   </script>
 </html>
