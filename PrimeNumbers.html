@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PrimeNumbers</title>
+  </head>
+  <body>
+    <input id="input" placeholder="Ingrese un valor" value="" />
+    <button onClick="generar_primos()">Generar</button>
+  </body>
+
+  <script>
+    // Funcion para generar arrays de numeros primos hasta limite establecido
+    function generar_primos() {
+      let num = document.getElementById("input").value;
+      // Creamos el array
+      let array_primos = [];
+      let es_primo = true;
+      // Recorremos los numeros desde el 2 por definicion de numeros primos,
+      // hasta el limite establecido, para hallar los primos antecesores
+      for (let i = 2; i < num; i++) {
+        // Evaluamos con la funcion "es_primo"
+        es_primo = true;
+
+        for (let j = 2; j < i; j++) {
+          //Si hallamos un divisor, devolvemos "false" al no ser un numero primo
+          // Si no se hallan divisores, es considerado numero primo y se devuelve "true"
+          if (i % j == 0) {
+            es_primo = false;
+          }
+        }
+        if (es_primo) {
+          array_primos.push(i);
+        }
+      }
+      console.log(
+        "Los numeros primos anterior a " + num + " son: " + array_primos
+      );
+    }
+  </script>
+</html>
